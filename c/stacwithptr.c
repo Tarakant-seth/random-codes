@@ -1,43 +1,43 @@
 #include<stdio.h>
-int stack[100],n,choice,top,x,i;
-
+int choice,n,x,*i;
+int *pos,*p1,stack[100];
 void push(){
-    if(top>=n-1){
+    if(p1==(pos+n)){
         printf("\n\t Stack is over flow");
     }
     else
     {
         printf("\n\tenter a value to be pushed ");
-        scanf("%d",&x);
-        top++;
-        stack[top]=x;
+        //printf("\n\t %d %x\n",n,pos);
+        scanf("%d",&x); 
+        p1++;    
+        *p1 = x;
     }
 }
 void pop(){
-    if(top<=-1){
+    if(p1==pos){
         printf("\n\t Stack is underflow");
     }
     else{
-        printf("\n\t the popped elements is %d ", stack[top]);
-        top--;
+        printf("\n\t the popped elements is %d ",*p1);
+        p1--;
     }
 }
 void display(){
-    if(top>=-1){
+    if(p1>=pos){
         printf("\n the elements in stack \n");
-        for(i=top;i>=0;i--)
-            printf("\n\t%d",stack[i]);
+        for(i=p1;i>pos;i--)
+            printf("\n\t%d",*i);
         printf("\n press next choice");
     }
     else{
         printf("\n the stack is empty");
     }
-    
 }
-
 void main(){
-    top =-1;
-    printf("\n\t Enter the size of stack <100 :");
+    pos = stack;
+    p1 = stack;
+    printf("\n\t Enter the size of stack <=100 :");
     scanf("%d",&n);
     printf("\n\t 1.push \n\t 2.pop\n\t 3.display \n\t 4.exit");
     do {
@@ -68,7 +68,6 @@ void main(){
         default:
             printf ("\n\t Please Enter a Valid Choice(1/2/3/4)");
         }
-
     }
     while (choice != 4);
 }
