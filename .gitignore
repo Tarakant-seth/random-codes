@@ -1,2 +1,5 @@
 work_space.code-workspace
 *.class
+venv
+.idea
+.ipynb_checkpoints

@@ -48,6 +48,7 @@ void delete(){
         if(start==NULL)
         {
             printf("the list is empty");
+            return;
         }
         while (c!=l)
         {
